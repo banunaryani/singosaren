@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/desc6674/public_html/singosaren
+    - /bin/cp -R singosaren $DEPLOYPATH
