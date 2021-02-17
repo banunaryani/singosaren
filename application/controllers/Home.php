@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 
 		$this->load->model('layanan_model');
@@ -17,15 +19,15 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
-		$data['title'] = $data['deskripsi']['desa'].' - '.$data['deskripsi']['kabkota'].', '.$data['deskripsi']['provinsi'];
-		
+		$data['title'] = $data['deskripsi']['desa'] . ' - ' . $data['deskripsi']['kabkota'] . ', ' . $data['deskripsi']['provinsi'];
+
 		$this->db->from('slideshow');
 		$this->db->order_by('urutan ASC');
 		$data['slideshow'] = $this->db->get()->result_array();
 		$data['navbar'] = get_navbar(); //dari helper
 		$data['layanan'] = $this->layanan_model->get_layanan_depan();
 		$data['berita'] = $this->berita_model->get_berita_terbaru(5);
-		$data['potensi'] = $this->potensi_model->get_all_potensi(6,0);
+		$data['potensi'] = $this->potensi_model->get_all_potensi(6, 0);
 		$data['kat_potensi'] = $this->potensi_model->get_all_kategori();
 		$data['pranala'] = $this->pranala_model->get_all_pranala();
 		$data['kontak'] = $this->user_model->get_kontak();
@@ -42,7 +44,7 @@ class Home extends CI_Controller {
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
 		$data['navbar'] = get_navbar(); //dari helper
 		$data['kategori'] = $this->layanan_model->get_all_kategori();
-		$data['layanan'] = $this->layanan_model->get_all_layanan();
+		$data['layanan'] = $this->layanan_model->get_all_layanan_publik();
 		$data['kontak'] = $this->user_model->get_kontak();
 		$data['berita_f'] = $this->berita_model->get_berita_terbaru(2);
 
@@ -51,7 +53,8 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	public function detail_layanan($slug) {
+	public function detail_layanan($slug)
+	{
 		$dat = $this->layanan_model->get_layanan($slug);
 
 		$data['title'] = $dat['judul'];
@@ -67,7 +70,8 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	public function berita() {
+	public function berita()
+	{
 		$data['title'] = "Kabar Desa";
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
 		$data['navbar'] = get_navbar(); //dari helper
@@ -96,18 +100,19 @@ class Home extends CI_Controller {
 
 		$this->pagination->initialize($config);
 
-		$page_now = ($this->input->get('page'))? $this->input->get('page'):0;
+		$page_now = ($this->input->get('page')) ? $this->input->get('page') : 0;
 
 		$data['pages'] = $this->pagination->create_links();
 
-		$data['berita'] = $this->berita_model->get_all_berita($config['per_page'],$page_now);
+		$data['berita'] = $this->berita_model->get_all_berita($config['per_page'], $page_now);
 
 		$this->load->view('template/header', $data);
 		$this->load->view('berita', $data);
 		$this->load->view('template/footer', $data);
 	}
 
-	public function detail_berita($slug) {
+	public function detail_berita($slug)
+	{
 		$dat = $this->berita_model->get_berita($slug);
 
 		$data['title'] = $dat['judul'];
@@ -131,7 +136,7 @@ class Home extends CI_Controller {
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
 		$data['navbar'] = get_navbar(); //dari helper
 		$data['kategori'] = $this->potensi_model->get_all_kategori();
-		$data['potensi'] = $this->potensi_model->get_all_potensi($this->potensi_model->count_potensi(),0);
+		$data['potensi'] = $this->potensi_model->get_all_potensi($this->potensi_model->count_potensi(), 0);
 		$data['kontak'] = $this->user_model->get_kontak();
 		$data['berita_f'] = $this->berita_model->get_berita_terbaru(2);
 
@@ -140,7 +145,8 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	public function detail_potensi($slug) {
+	public function detail_potensi($slug)
+	{
 		$dat = $this->potensi_model->get_potensi($slug);
 
 		$data['title'] = $dat['judul'];
@@ -156,7 +162,8 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	public function profil() {
+	public function profil()
+	{
 		$data['title'] = 'Profil Desa';
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
 		$data['navbar'] = get_navbar(); //dari helper
@@ -169,7 +176,8 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	public function peta() {
+	public function peta()
+	{
 		$data['title'] = 'Peta Wilayah Desa';
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
 		$data['navbar'] = get_navbar(); //dari helper
@@ -181,6 +189,4 @@ class Home extends CI_Controller {
 		$this->load->view('maps', $data);
 		$this->load->view('template/footer', $data);
 	}
-
-
 }
