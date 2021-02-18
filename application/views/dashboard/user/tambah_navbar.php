@@ -1,5 +1,3 @@
-
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -7,19 +5,19 @@
 	<h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
 
 	<div class="card col-7 mb-3">
-
 		<div class="card-body">
+			<p class="mb-2"><small>* wajib diisi</small></p>
 
-			<form method="post" action="<?= base_url()?>admin/navbar/tambah" id="form_tambah_navbar">
+			<form method="post" action="<?= base_url() ?>admin/navbar/tambah" id="form_tambah_navbar">
 
 				<input type="hidden" name="id" id="id">
 				<div class="form-group">
-					<label class="small" for="navbar_menu">Nama menu</label>
+					<label class="small" for="navbar_menu">Nama menu *</label>
 					<input type="text" class="form-control" name="navbar_menu" id="navbar_menu">
 					<?= form_error('navbar_menu', '<small class="text-danger pl-3">', '</small>') ?>
 				</div>
 				<div class="form-group">
-					<label class="small" for="link_menu">Link tujuan</label>
+					<label class="small" for="link_menu">Link tujuan *</label>
 					<input type="url" class="form-control" name="link_menu" id="link_menu">
 					<?= form_error('link_menu', '<small class="text-danger pl-3">', '</small>') ?>
 				</div>
@@ -30,7 +28,7 @@
 				<div class="collapse" id="tambah_submenu">
 					<div class="card">
 						<div class="card-header">
-							<p class="mb-0"><strong>Submenu</strong></p> 
+							<p class="mb-0"><strong>Submenu</strong></p>
 						</div>
 						<div class="card-body">
 
@@ -71,13 +69,13 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="small" for="urutan">Urutan</label>
+					<label class="small" for="urutan">Urutan *</label>
 					<select class="form-control" name="urutan" id="urutan">
-						<?php 
-						for ($i=1; $i <= $jml+1; $i++) { 
-							?>
+						<?php
+						for ($i = 1; $i <= $jml + 1; $i++) {
+						?>
 							<option value="<?= $i ?>"><?= $i ?></option>
-							<?php
+						<?php
 						}
 						?>
 					</select>
@@ -88,7 +86,7 @@
 
 				<div class="d-flex justify-content-end">
 					<a type="button" href="<?= base_url('admin/navbar') ?>" class="btn btn-secondary card-link"><span class="fas fa-fw fa-times"></span>Batal</a>
-		            <button type="submit" class="btn btn-success card-link"><span class="fas fa-fw fa-check"></span> Simpan</button>
+					<button type="submit" class="btn btn-success card-link"><span class="fas fa-fw fa-check"></span> Simpan</button>
 				</div>
 
 			</form>
@@ -98,32 +96,31 @@
 	</div>
 	<!-- end card -->
 
-	</div>
-	<!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
 
 <script type="text/javascript">
 	$(function() {
-      var str = '<li><div class="row input_submenu_navbar"><div class="col"><div class="form-group"><label for="nama_submenu[]">Submenu</label><input type="text" class="form-control" name="nama_submenu[]" id="nama_submenu[]" placeholder="Submenu"></div><div class="form-group"><label for="link[]">Link</label><input type="url" class="form-control" name="link_submenu[]" id="link_submenu[]" placeholder="http://contoh.com"></div><hr></div><div class="col-1"><i class="btn btn-danger btn-sm remove"><span class="fas fa-fw fa-times"></span></i></div></div></li>';
+		var str = '<li><div class="row input_submenu_navbar"><div class="col"><div class="form-group"><label for="nama_submenu[]">Submenu</label><input type="text" class="form-control" name="nama_submenu[]" id="nama_submenu[]" placeholder="Submenu"></div><div class="form-group"><label for="link[]">Link</label><input type="url" class="form-control" name="link_submenu[]" id="link_submenu[]" placeholder="http://contoh.com"></div><hr></div><div class="col-1"><i class="btn btn-danger btn-sm remove"><span class="fas fa-fw fa-times"></span></i></div></div></li>';
 
 		// DYNAMIC INPUT SUBMENU NAVBAR
-		$(".btn_tambah_submenu").on('click',function() {
+		$(".btn_tambah_submenu").on('click', function() {
 			$(".submenu_navbar").append(str);
-	        // $(".submenu_navbar > :first-child").clone(true).find("input").val("").end().appendTo(".submenu_navbar");
-	    });
+			// $(".submenu_navbar > :first-child").clone(true).find("input").val("").end().appendTo(".submenu_navbar");
+		});
 
 
-		$(".submenu_navbar").on('click', '.remove', function(n){
+		$(".submenu_navbar").on('click', '.remove', function(n) {
 
 			n.currentTarget.closest('li').remove();
 
 		});
 
 
-		
+
 
 	})
 </script>
-
