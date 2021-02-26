@@ -134,7 +134,7 @@ class Berita_Admin extends CI_Controller
 	{
 
 		$gbr = $this->berita_model->get_gambar($id);
-		unlink(FCPATH . 'assets/img/berita/' . $gbr);
+		unlink(FCPATH . 'assets/img/berita/' . $gbr[0]);
 
 		if ($this->berita_model->hapus($id)) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berita <strong>berhasil</strong> dihapus</div>');

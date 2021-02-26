@@ -955,14 +955,23 @@
           },
           click: function(e) {
 
-            $.post('<?= base_url('admin/peta/get_dukuh') ?>', {
-              id: e.target.feature.properties.Dukuh
+            var rt = e.target.feature.properties.RT;
+            var dukuh = e.target.feature.properties.Dukuh;
+            var no = e.target.feature.properties.Nomor;
+
+
+            $.post('<?= base_url('admin/peta/get_persil') ?>', {
+              no: no,
+              rt: rt
             }, function(response) {
+              if (response == null) {
+                var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tbody></table>";
 
-              alert(response.dukuh);
-              console.log(response.dukuh);
+              } else {
 
-              var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>No Persil</th><td>" + e.target.feature.properties.Nomor + "</td></tr><tr><th scope='row'>RT</td><td>" + e.target.feature.properties.RT + "</td></tr></tr><tr><th scope='row'>Pedukuhan</th><td>" + response.dukuh + "</td></tr><tr><th scope='row'>Jml Penduduk</th><td>" + response.penduduk + "</td></tr><tr><th scope='row'>Luas Wilayah (m2)</th><td>" + response.luas + "</td></tr></tbody></table>";
+                var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tr><tr><th scope='row'>Pedukuhan</th><td>" + response.dukuh + "</td></tr><tr><th scope='row'>RW</th><td>" + response.rw + "</td></tr><tr><th scope='row'>Penduduk</th><td>" + response.penduduk + "</td></tr><tr><th scope='row'>Luas</th><td>" + response.luas + "</td></tr></tbody></table>";
+
+              }
 
               persil.bindPopup(content); //Popup
             }, 'json');

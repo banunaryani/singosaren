@@ -12,17 +12,18 @@
 
       <div class="form-group mb-3">
         <label for="judul"><strong>Judul</strong> *</label>
-        <input type="text" class="form-control" name="judul" id="judul">
+        <input type="text" class="form-control <?= (form_error('judul')) ? 'is-invalid' : '' ?>" name="judul" id="judul">
         <br>
         <?= form_error('judul', '<small class="text-danger pl-3">', '</small>') ?>
       </div>
 
-      <label><strong>Pilih Gambar Cover</strong></label>
+      <label><strong>Pilih Gambar Cover</strong> *</label>
       <div class="input-group mb-3">
         <div class="custom-file">
-          <input type="file" class="custom-file-input" name="gambar" id="gambar" aria-describedby="gambar">
+          <input type="file" class="custom-file-input <?= (form_error('gambar')) ? 'is-invalid' : '' ?>" name="gambar" id="gambar" aria-describedby="gambar">
           <label class="custom-file-label gambar-label" for="gambar">Pilih gambar</label>
         </div>
+        <?= form_error('gambar', '<small class="text-danger pl-3">', '</small>') ?>
       </div>
 
       <div class="form-group">
@@ -40,7 +41,7 @@
 
       <div class="form-group mb-3">
         <label for="konten"><strong>Konten</strong> *</label>
-        <textarea name="konten" id="konten">
+        <textarea name="konten" id="konten" class="<?= (form_error('konten')) ? 'invalid' : '' ?>">
       			</textarea>
         <?= form_error('konten', '<small class="text-danger pl-3">', '</small>') ?>
       </div>

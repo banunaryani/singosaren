@@ -24,7 +24,7 @@
         <img width="200" class="img-fluid mt-4" src="<?= base_url('assets/img/potensi/') . $potensi['gambar'] ?>">
       </div>
 
-      <label><strong>Pilih Gambar Cover</strong></label>
+      <label><strong>Pilih Gambar Cover</strong> *</label>
       <div class="input-group mb-3">
         <div class="custom-file">
           <input type="file" class="custom-file-input" name="gambar" id="gambar" aria-describedby="gambar">

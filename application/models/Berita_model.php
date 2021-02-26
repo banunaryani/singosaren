@@ -1,13 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Berita_model extends CI_Model {
+class Berita_model extends CI_Model
+{
 
-	public function get_all_kategori() {
+	public function get_all_kategori()
+	{
 		return $this->db->get('kategori_berita')->result_array();
 	}
 
-	public function get_all_berita($limit,$start) {
+	public function get_all_berita($limit, $start)
+	{
 		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`
 				FROM `berita`
 				LEFT JOIN `user`
@@ -20,7 +23,8 @@ class Berita_model extends CI_Model {
 		return $this->db->query($q)->result_array();
 	}
 
-	public function get_some_berita($jml) {
+	public function get_some_berita($jml)
+	{
 		$q = "SELECT `berita`.`id` as `berita_id`, `judul`, `konten`, `arsipkan`, `slug`
 					FROM `berita`
 				LEFT JOIN `kategori_berita`
@@ -31,7 +35,8 @@ class Berita_model extends CI_Model {
 		return $this->db->query($q)->result_array();
 	}
 
-	public function get_berita_terbaru($jml) {
+	public function get_berita_terbaru($jml)
+	{
 		$q = "SELECT `berita`.`id` as `berita_id`, `gambar`, `judul`, `konten`, `tanggal_dibuat`, `kategori`, `arsipkan`, `slug`
 					FROM `berita`
 				LEFT JOIN `kategori_berita`
@@ -42,7 +47,8 @@ class Berita_model extends CI_Model {
 		return $this->db->query($q)->result_array();
 	}
 
-	public function get_berita($slug) {
+	public function get_berita($slug)
+	{
 		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `arsipkan`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`
 				FROM `berita`
 				LEFT JOIN `user`
@@ -54,13 +60,14 @@ class Berita_model extends CI_Model {
 		return $this->db->query($q)->row_array();
 	}
 
-	public function cek_last_id() {
+	public function cek_last_id()
+	{
 		$this->db->select('id');
 		return $this->db->get('berita')->last_row();
 	}
 
 	public function tambah_berita($data)
-	{	
+	{
 		$this->db->insert('berita', $data);
 
 		return true;
@@ -71,9 +78,10 @@ class Berita_model extends CI_Model {
 		return count($this->db->get('berita')->result_array());
 	}
 
-	public function edit($slug, $data) {
+	public function edit($slug, $data)
+	{
 		$this->db->where('slug', $slug);
-		$this->db->update('berita',$data);
+		$this->db->update('berita', $data);
 
 		return true;
 	}
@@ -86,7 +94,8 @@ class Berita_model extends CI_Model {
 		return true;
 	}
 
-	public function arsipkan($id, $val) {
+	public function arsipkan($id, $val)
+	{
 		$this->db->where('id', $id);
 		$this->db->set('arsipkan', $val);
 		$this->db->update('berita');
@@ -94,21 +103,22 @@ class Berita_model extends CI_Model {
 		return true;
 	}
 
-	public function get_gambar($id) {
+	public function get_gambar($id)
+	{
 		$this->db->select('gambar');
-		$this->db->where('id',$id);
+		$this->db->where('id', $id);
 		return $this->db->get('berita')->row_array();
-
 	}
 
 	public function tambah_kategori($data)
-	{	
+	{
 		$this->db->insert('kategori_berita', array('kategori' => $data));
 
 		return true;
 	}
 
-	public function edit_kategori($data) {
+	public function edit_kategori($data)
+	{
 		$this->db->replace('kategori_berita', $data);
 
 		return true;
@@ -122,7 +132,8 @@ class Berita_model extends CI_Model {
 		return true;
 	}
 
-	public function get_next($id) {
+	public function get_next($id)
+	{
 		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `arsipkan`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`
 				FROM `berita`
 				LEFT JOIN `user`
@@ -135,7 +146,8 @@ class Berita_model extends CI_Model {
 		return $this->db->query($q)->row_array();
 	}
 
-	public function get_prev($id) {
+	public function get_prev($id)
+	{
 		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `arsipkan`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`
 				FROM `berita`
 				LEFT JOIN `user`
@@ -147,5 +159,4 @@ class Berita_model extends CI_Model {
 
 		return $this->db->query($q)->row_array();
 	}
-
 }

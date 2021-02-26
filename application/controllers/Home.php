@@ -14,6 +14,7 @@ class Home extends CI_Controller
 		$this->load->model('pranala_model');
 		$this->load->model('user_model');
 		$this->load->model('profil_model');
+		$this->load->model('jargon_model');
 	}
 
 	public function index()
@@ -32,6 +33,7 @@ class Home extends CI_Controller
 		$data['pranala'] = $this->pranala_model->get_all_pranala();
 		$data['kontak'] = $this->user_model->get_kontak();
 		$data['berita_f'] = $this->berita_model->get_berita_terbaru(2);
+		$data['jargon'] = $this->jargon_model->get_all();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('index', $data);

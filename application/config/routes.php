@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -103,3 +103,6 @@ $route['admin/kontak'] = 'user/kontak';
 // peta
 $route['admin/peta'] = 'Peta_Admin';
 $route['admin/peta/(:any)'] = 'Peta_Admin/$1';
+
+// JARGON
+$route['admin/jargon'] = 'Jargon_Admin';
