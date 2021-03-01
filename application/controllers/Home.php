@@ -15,6 +15,7 @@ class Home extends CI_Controller
 		$this->load->model('user_model');
 		$this->load->model('profil_model');
 		$this->load->model('jargon_model');
+		$this->load->model('peta_model');
 	}
 
 	public function index()
@@ -23,6 +24,7 @@ class Home extends CI_Controller
 		$data['title'] = $data['deskripsi']['desa'] . ' - ' . $data['deskripsi']['kabkota'] . ', ' . $data['deskripsi']['provinsi'];
 
 		$this->db->from('slideshow');
+		$this->db->where('arsipkan', 0);
 		$this->db->order_by('urutan ASC');
 		$data['slideshow'] = $this->db->get()->result_array();
 		$data['navbar'] = get_navbar(); //dari helper
@@ -106,7 +108,7 @@ class Home extends CI_Controller
 
 		$data['pages'] = $this->pagination->create_links();
 
-		$data['berita'] = $this->berita_model->get_all_berita($config['per_page'], $page_now);
+		$data['berita'] = $this->berita_model->get_active_berita($config['per_page'], $page_now);
 
 		$this->load->view('template/header', $data);
 		$this->load->view('berita', $data);
@@ -190,5 +192,31 @@ class Home extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('maps', $data);
 		$this->load->view('template/footer', $data);
+	}
+
+	public function get_persil()
+	{
+		$no = $this->input->post('no');
+		$rt = $this->input->post('rt');
+		$data = $this->peta_model->get_persil($no, $rt);
+
+		echo json_encode($data);
+	}
+
+	public function get_rt()
+	{
+		$rt = $this->input->post('rt');
+		$dukuh = $this->input->post('dukuh');
+		$data = $this->peta_model->get_rt($rt, $dukuh);
+
+		echo json_encode($data);
+	}
+
+	public function get_dukuh()
+	{
+		$id = $this->input->post('id');
+		$data = $this->peta_model->get_dukuh($id);
+
+		echo json_encode($data);
 	}
 }

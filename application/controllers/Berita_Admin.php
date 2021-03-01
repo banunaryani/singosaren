@@ -212,10 +212,10 @@ class Berita_Admin extends CI_Controller
 		}
 	}
 
-	public function arsipkan($id, $val)
+	public function arsipkan($slug, $val)
 	{
 
-		$this->berita_model->arsipkan($id, $val);
+		$this->berita_model->arsipkan($slug, $val);
 
 		if ($val == 1) {
 			//jika akan diarsipakan
@@ -225,7 +225,7 @@ class Berita_Admin extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berita <strong>batal</strong> diarsipkan</div>');
 		}
 
-		redirect('admin/berita/edit/' . $id);
+		redirect('admin/berita/edit/' . $slug);
 	}
 
 	// ===================================================

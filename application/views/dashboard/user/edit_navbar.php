@@ -15,11 +15,24 @@
       <div class="form-group">
         <label class="small" for="navbar_menu">Nama menu *</label>
         <input type="text" class="form-control" name="navbar_menu" id="navbar_menu" value="<?= $menu['menu_nav'] ?>">
+        <?= form_error('navbar_menu', '<small class="text-danger pl-3">', '</small>') ?>
       </div>
 
       <div class="form-group">
         <label class="small" for="link_menu">Link tujuan *</label>
-        <input type="url" class="form-control" name="link_menu" id="link_menu" value="<?= $menu['link'] ?>">
+        <div class="form-row">
+          <div class="col-sm-auto">
+            <label class="sr-only" for="host">Host</label>
+            <input type="text" class="form-control-plaintext" id="host" name="host" value="<?= base_url() ?>">
+          </div>
+          <div class="col-sm">
+            <label class="sr-only" for="link_menu">Path</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="link_menu" name="link_menu" value="<?= $menu['link'] ?>">
+              <?= form_error('link_menu', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -56,7 +69,7 @@
                   </div>
 
                   <div class="col-1">
-                    <i class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal" data_menuid="$menu['id']" data-id="<?= $s['id_submenu'] ?>" data-submenu="<?= $s['submenu'] ?>"><span class="fas fa-fw fa-trash"></span></i>
+                    <i class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal" data-menuid="<?= $menu['id'] ?>" data-id="<?= $s['id_submenu'] ?>" data-submenu="<?= $s['submenu'] ?>"><span class="fas fa-fw fa-trash"></span></i>
                   </div>
 
                 </div>

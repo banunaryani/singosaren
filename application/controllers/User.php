@@ -119,7 +119,7 @@ class User extends CI_Controller
 
 			$config['upload_path']          = './assets/img/';
 			$config['overwrite']			= TRUE;
-			$config['allowed_types']        = 'png|jpg|gif|jpeg';
+			$config['allowed_types']        = 'png|jpg|jpeg';
 			$config['overwrite']			= TRUE;
 			$config['max_size']             = 2048;
 			$config['file_name']			= 'logo-' . $file['name'];
@@ -490,11 +490,11 @@ class User extends CI_Controller
 			$this->db->update('slideshow');
 
 			if ($val == 0) {
-				$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible mt-2"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Slideshow diaktifkan</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible mt-2"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Slideshow dinonaktifkan</div>');
 
 				redirect('user/slideshow');
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-warning alert_dismissible mt-2"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Slideshow dinonaktifkan</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible mt-2"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Slideshow diaktifkan</div>');
 				redirect('user/slideshow');
 			}
 		}

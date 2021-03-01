@@ -768,7 +768,7 @@
           },
           click: function(e) {
 
-            $.post('<?= base_url('peta/get_dukuh') ?>', {
+            $.post('<?= base_url('home/get_dukuh') ?>', {
               id: e.target.feature.properties.Id
             }, function(response) {
 
@@ -889,7 +889,7 @@
           },
           click: function(e) {
 
-            $.post('<?= base_url('peta/get_rt') ?>', {
+            $.post('<?= base_url('home/get_rt') ?>', {
               rt: e.target.feature.properties.RT,
               dukuh: e.target.feature.properties.Dukuh
             }, function(response) {
@@ -960,21 +960,40 @@
             var no = e.target.feature.properties.Nomor;
 
 
-            $.post('<?= base_url('admin/peta/get_persil') ?>', {
+            $.post('<?= base_url('home/get_persil') ?>', {
               no: no,
               rt: rt
             }, function(response) {
               if (response == null) {
-                var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tbody></table>";
+                // code
+                var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + e.target.feature.properties.Nomor + "</td></tr><tr><th scope='row'>RT</td><td>" + e.target.feature.properties.RT + "</td></tr></tbody></table>";
 
               } else {
-
                 var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tr><tr><th scope='row'>Pedukuhan</th><td>" + response.dukuh + "</td></tr><tr><th scope='row'>RW</th><td>" + response.rw + "</td></tr><tr><th scope='row'>Penduduk</th><td>" + response.penduduk + "</td></tr><tr><th scope='row'>Luas</th><td>" + response.luas + "</td></tr></tbody></table>";
 
               }
 
+              // $('.card-body input#id').val(response.rt_id);
+
               persil.bindPopup(content); //Popup
             }, 'json');
+
+            // $.post('<?= base_url('home/get_persil') ?>', {
+            //   no: no,
+            //   rt: rt
+            // }, function(response) {
+            //   console.log(response);
+            //   if (response == null) {
+            //     var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tbody></table>";
+
+            //   } else {
+
+            //     var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tr><tr><th scope='row'>Pedukuhan</th><td>" + response.dukuh + "</td></tr><tr><th scope='row'>RW</th><td>" + response.rw + "</td></tr><tr><th scope='row'>Penduduk</th><td>" + response.penduduk + "</td></tr><tr><th scope='row'>Luas</th><td>" + response.luas + "</td></tr></tbody></table>";
+
+            //   }
+            //   var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Nomor</th><td>" + no + "</td></tr><tr><th scope='row'>RT</td><td>" + rt + "</td></tr></tbody></table>";
+            //   persil.bindPopup(content); //Popup
+            // }, 'json');
             // feature.properties.Desa = "Singosaren";
             // var content = "<table class='table table-bordered'><tbody><tr><th scope='row'>Desa</th><td>" + feature.properties.Desa + "</td></tr><tr><th scope='row'>Dusun</th><td>" + feature.properties.Dukuh + "</td></tr><tr><th scope='row'>RT</td><td>" + feature.properties.RT + "</td></tr></tr><tr><th scope='row'>No Persil</th><td>" + feature.properties.Nomor + "</td></tr></tbody></table>";
 

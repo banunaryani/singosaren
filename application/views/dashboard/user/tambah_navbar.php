@@ -18,7 +18,18 @@
 				</div>
 				<div class="form-group">
 					<label class="small" for="link_menu">Link tujuan *</label>
-					<input type="url" class="form-control" name="link_menu" id="link_menu">
+					<div class="form-row">
+						<div class="col-sm-auto">
+							<label class="sr-only" for="host">Host</label>
+							<input type="text" class="form-control-plaintext" id="host" name="host" value="<?= base_url() ?>">
+						</div>
+						<div class="col-sm">
+							<label class="sr-only" for="link_menu">Path</label>
+							<div class="input-group">
+								<input type="text" class="form-control" id="link_menu" name="link_menu">
+							</div>
+						</div>
+					</div>
 					<?= form_error('link_menu', '<small class="text-danger pl-3">', '</small>') ?>
 				</div>
 				<button class="btn btn-sm btn-primary mb-3" type="button" data-toggle="collapse" data-target="#tambah_submenu" aria-expanded="false" aria-controls="tambah_submenu">

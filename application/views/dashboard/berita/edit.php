@@ -54,11 +54,11 @@
         <?php
         if ($berita['arsipkan'] == 0) {
         ?>
-          <a href="<?= base_url('admin/berita/arsipkan/') . $berita['id'] . '/1' ?>" type="button" name="arsipkan" class="btn btn-sm btn-info mr-2"><span class="fas fa-sm fa-fw fa-archive mr-2"></span> Arsipkan</a>
+          <a href="<?= base_url('admin/berita/arsipkan/') . $berita['slug'] . '/1' ?>" type="button" name="arsipkan" class="btn btn-sm btn-info mr-2"><span class="fas fa-sm fa-fw fa-archive mr-2"></span> Arsipkan</a>
         <?php
         } else {
         ?>
-          <a href="<?= base_url('admin/berita/arsipkan/') . $berita['id'] . '/0' ?>" type="button" name="arsipkan" class="btn btn-sm btn-dark mr-2"><span class="fas fa-sm fa-fw fa-check mr-2"></span> Diarsipkan</a>
+          <a href="<?= base_url('admin/berita/arsipkan/') . $berita['slug'] . '/0' ?>" type="button" name="arsipkan" class="btn btn-sm btn-dark mr-2"><span class="fas fa-sm fa-fw fa-check mr-2"></span> Diarsipkan</a>
         <?php
         }
         ?>

@@ -77,7 +77,7 @@
 								<!-- Rounded switch -->
 								<form method="post" action="<?= base_url() ?>user/toggle_arsipkan_slideshow/<?= $ss['id'] . "/" . $ss['arsipkan'] ?>">
 									<label class="switch">
-										<input type="checkbox" id="arsipkan" name="arsipkan" <?php echo ($ss['arsipkan'] == 1) ? 'checked' : ''; ?> onChange="this.form.submit()">
+										<input type="checkbox" id="arsipkan" name="arsipkan" <?php echo ($ss['arsipkan'] == 0) ? 'checked' : ''; ?> onChange="this.form.submit()">
 										<span class="slider round"></span>
 									</label>
 								</form>

@@ -11,12 +11,27 @@ class Berita_model extends CI_Model
 
 	public function get_all_berita($limit, $start)
 	{
-		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`
+		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`, `arsipkan`
 				FROM `berita`
 				LEFT JOIN `user`
 				ON `berita`.`dipost_oleh` = `user`.`id`
 				LEFT JOIN `kategori_berita`
 				ON `berita`.`kategori_id` = `kategori_berita`.`id`
+				ORDER BY `tanggal_dibuat` DESC
+				LIMIT $start, $limit";
+
+		return $this->db->query($q)->result_array();
+	}
+
+	public function get_active_berita($limit, $start)
+	{
+		$q = "SELECT `berita`.`id`, `kategori`, `gambar`, `judul`, `konten`, `tanggal_dibuat`, `user`.`name` as `posted_by`, `slug`, `arsipkan`
+				FROM `berita`
+				LEFT JOIN `user`
+				ON `berita`.`dipost_oleh` = `user`.`id`
+				LEFT JOIN `kategori_berita`
+				ON `berita`.`kategori_id` = `kategori_berita`.`id`
+				WHERE `arsipkan` = 0
 				ORDER BY `tanggal_dibuat` DESC
 				LIMIT $start, $limit";
 
@@ -29,6 +44,7 @@ class Berita_model extends CI_Model
 					FROM `berita`
 				LEFT JOIN `kategori_berita`
 					ON `berita`.`kategori_id` = `kategori_berita`.`id`
+					WHERE `arsipkan` = 0
 					ORDER BY RAND()
 					LIMIT $jml";
 
@@ -41,6 +57,7 @@ class Berita_model extends CI_Model
 					FROM `berita`
 				LEFT JOIN `kategori_berita`
 					ON `berita`.`kategori_id` = `kategori_berita`.`id`
+					WHERE `arsipkan` = 0
 					ORDER BY `tanggal_dibuat` DESC
 					LIMIT $jml";
 
@@ -94,9 +111,9 @@ class Berita_model extends CI_Model
 		return true;
 	}
 
-	public function arsipkan($id, $val)
+	public function arsipkan($slug, $val)
 	{
-		$this->db->where('id', $id);
+		$this->db->where('slug', $slug);
 		$this->db->set('arsipkan', $val);
 		$this->db->update('berita');
 
