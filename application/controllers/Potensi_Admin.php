@@ -254,4 +254,20 @@ class Potensi_Admin extends CI_Controller
 
 		redirect('admin/potensi');
 	}
+
+	public function arsipkan($slug, $val)
+	{
+
+		$this->potensi_model->arsipkan($slug, $val);
+
+		if ($val == 1) {
+			//jika akan diarsipakan
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Potensi <strong>diarsipkan</strong></div>');
+		} else {
+
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Potensi <strong>batal</strong> diarsipkan</div>');
+		}
+
+		redirect('admin/potensi/edit/' . $slug);
+	}
 }

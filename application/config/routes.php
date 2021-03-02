@@ -84,6 +84,7 @@ $route['admin/berita/(:any)/(:any)/(:any)'] = 'Berita_Admin/$1/$2/$3';
 $route['admin/potensi'] = 'Potensi_Admin';
 $route['admin/potensi/(:any)'] = 'Potensi_Admin/$1';
 $route['admin/potensi/(:any)/(:any)'] = 'Potensi_Admin/$1/$2';
+$route['admin/potensi/(:any)/(:any)/(:any)'] = 'Potensi_Admin/$1/$2/$3';
 
 // PRANALA
 $route['admin/pranala'] = 'Pranala_Admin';

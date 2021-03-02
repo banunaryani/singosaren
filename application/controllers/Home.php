@@ -30,7 +30,7 @@ class Home extends CI_Controller
 		$data['navbar'] = get_navbar(); //dari helper
 		$data['layanan'] = $this->layanan_model->get_layanan_depan();
 		$data['berita'] = $this->berita_model->get_berita_terbaru(5);
-		$data['potensi'] = $this->potensi_model->get_all_potensi(6, 0);
+		$data['potensi'] = $this->potensi_model->get_active_potensi(6, 0);
 		$data['kat_potensi'] = $this->potensi_model->get_all_kategori();
 		$data['pranala'] = $this->pranala_model->get_all_pranala();
 		$data['kontak'] = $this->user_model->get_kontak();
@@ -140,7 +140,7 @@ class Home extends CI_Controller
 		$data['deskripsi'] = $this->db->get('deskripsi')->row_array();
 		$data['navbar'] = get_navbar(); //dari helper
 		$data['kategori'] = $this->potensi_model->get_all_kategori();
-		$data['potensi'] = $this->potensi_model->get_all_potensi($this->potensi_model->count_potensi(), 0);
+		$data['potensi'] = $this->potensi_model->get_active_potensi($this->potensi_model->count_active_potensi(), 0);
 		$data['kontak'] = $this->user_model->get_kontak();
 		$data['berita_f'] = $this->berita_model->get_berita_terbaru(2);
 
