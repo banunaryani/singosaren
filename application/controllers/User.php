@@ -223,7 +223,7 @@ class User extends CI_Controller
 
 				$this->session->set_flashdata('message', '<div class="alert alert-success alert_dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Password <strong>berhasil</strong> diubah</div>');
 
-				redirect('auth/edit_profile/' . $id);
+				redirect('user/edit_profile/' . $id);
 			}
 		}
 	}
