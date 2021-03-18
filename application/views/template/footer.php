@@ -102,6 +102,7 @@
 	    <script src="<?= base_url('assets/vendor/leaflet/') ?>leaflet-measure/leaflet-measure.js"></script>
 
 	    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+
 	    
 		<!-- Chart JS -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -131,5 +132,7 @@
 		<script src="<?= base_url('assets/') ?>js/active.js"></script>
 
 		<script src="<?= base_url('assets/') ?>js/demografi.js"></script>
+		
+			    
 	</body>
 </html>

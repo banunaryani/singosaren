@@ -21,11 +21,6 @@
 						<!-- Upload Logo -->
 						<label for="gambar" class="mb-0"><strong>Gambar</strong></label>
 
-						<div class="row my-3">
-							<div class="col">
-								<img height="70" src="<?= base_url('assets/img/') ?>logo.png">
-							</div>
-						</div>
 						<div class="row">
 							<div class="col">
 								<div class="input-group">

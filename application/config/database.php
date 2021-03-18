@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'singosaren',
+	'hostname' => 'singosaren.geoartscience.co.id',
+	'username' => 'geoartsc_admin',
+	'password' => 'fgRm9QbNkBcxLa8',
+	'database' => 'geoartsc_singosaren',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

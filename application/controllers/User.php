@@ -321,7 +321,7 @@ class User extends CI_Controller
 
 			$config['upload_path']          = './assets/img/slideshow/';
 			$config['overwrite']			= TRUE;
-			$config['allowed_types']        = 'png|jpg|gif';
+			$config['allowed_types']        = 'png|jpg|jpeg|gif';
 			$config['max_size']             = 2048;
 
 			$this->load->library('upload', $config);
@@ -399,7 +399,7 @@ class User extends CI_Controller
 				$tbl1_link = $this->input->post('linkBtn1');
 				$tbl2_nama = $this->input->post('namaBtn2');
 				$tbl2_link = $this->input->post('linkBtn2');
-				$arsip = $this->input->post('arsipkan');
+				$arsip = 0;
 				$urutan = $this->input->post('urutan');
 
 				$arr = array(

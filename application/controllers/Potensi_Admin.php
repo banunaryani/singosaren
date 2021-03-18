@@ -52,7 +52,7 @@ class Potensi_Admin extends CI_Controller
 		if ($file['name']) {
 
 			$config['upload_path']          = './assets/img/potensi/';
-			$config['allowed_types']        = 'png|jpg|gif|jpeg';
+			$config['allowed_types']        = 'png|jpg|gif|jpeg|mp4';
 			$config['overwrite']			= TRUE;
 			$config['file_name']			= 'potensi-' . $id . '-' . $file['name'] . '.jpg';
 

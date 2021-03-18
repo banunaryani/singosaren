@@ -94,3 +94,11 @@
 	</div>
 </section>
 <!--/ End Services -->
+
+	    
+	    <script>
+            document.querySelectorAll( 'oembed[url]' ).forEach( element => {
+                iframely.load( element, element.attributes.url.value );
+            } );
+            console.log('kkkk');
+        </script>
