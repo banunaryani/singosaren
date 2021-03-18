@@ -19,11 +19,11 @@
 				<div class="form-group">
 					<label class="small" for="link_menu">Link tujuan *</label>
 					<div class="form-row">
-						<div class="col-sm-auto">
+						<div class="col">
 							<label class="sr-only" for="host">Host</label>
 							<input type="text" class="form-control-plaintext" id="host" name="host" value="<?= base_url() ?>">
 						</div>
-						<div class="col-sm">
+						<div class="col-4">
 							<label class="sr-only" for="link_menu">Path</label>
 							<div class="input-group">
 								<input type="text" class="form-control" id="link_menu" name="link_menu">

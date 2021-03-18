@@ -19,7 +19,7 @@
 					<form method="post" action="<?= base_url('user/tambah_slideshow') ?>" enctype="multipart/form-data">
 
 						<!-- Upload Logo -->
-						<label for="gambar" class="mb-0"><strong>Gambar</strong></label>
+						<label for="gambar" class="mb-0"><strong>Gambar</strong> *</label>
 
 						<div class="row">
 							<div class="col">
@@ -34,7 +34,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="judul"><strong>Judul</strong></label>
+							<label for="judul"><strong>Judul</strong> *</label>
 							<input type="text" class="form-control" name="judul" id="judul" placeholder="Judul">
 						</div>
 						<div class="form-group">
