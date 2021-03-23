@@ -7,8 +7,8 @@
   <?= $this->session->flashdata('message'); ?>
 
   <div class="row">
-    <div class="col-2">
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="col-lg-2 col-md-1 mb-3">
+      <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><strong>Semua</strong></a>
 
         <?php
@@ -18,13 +18,13 @@
         <?php
         }
         ?>
-
-        <div class="mt-2 d-flex justify-content-end">
-          <a href="#" class="btn btn-sm btn-warning mr-1" data-toggle="modal" data-target="#editModal" data-toggle="tooltip" data-placement="bottom" title="Edit kategori potensi"><span class="fas fa-fw fa-pen"></span></a>
-          <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambahModal" data-toggle="tooltip" data-placement="bottom" title="Tambah kategori potensi"><span class="fas fa-fw fa-plus"></span></a>
-        </div>
-
       </div>
+
+      <div class="mt-2 d-flex justify-content-end">
+        <a href="#" class="btn btn-sm btn-warning mr-1" data-toggle="modal" data-target="#editModal" data-toggle="tooltip" data-placement="bottom" title="Edit kategori potensi"><span class="fas fa-fw fa-pen"></span></a>
+        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambahModal" data-toggle="tooltip" data-placement="bottom" title="Tambah kategori potensi"><span class="fas fa-fw fa-plus"></span></a>
+      </div>
+
     </div>
     <div class="col">
       <div class="tab-content" id="v-pills-tabContent">
@@ -36,7 +36,7 @@
             </div>
             <div class="card-body">
 
-              <table class="table main-table table-hover">
+              <table class="table main-table table-hover table-responsive">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -59,7 +59,7 @@
                       <td>
                         <img width="100" src="<?= base_url('assets/img/potensi/') . $b['gambar'] ?>">
                       </td>
-                      <td><?php echo $b['judul'];
+                      <td><?php echo '<a href=' . base_url('potensi/') . $b['slug'] . ' target="_blank">' . $b['judul'] . '</a>';
                           echo ($b['arsipkan'] == 1) ? '<small><span class="badge badge-secondary ml-2">Diarsipkan</span></small>' : '' ?></td>
                       <td><?= $b['kategori'] ?></td>
                       <td><?= $b['tanggal_dibuat'] ?></td>
@@ -90,7 +90,7 @@
                 <a href="<?= base_url('admin/potensi/tambah') ?>" class="btn btn-primary"><span class="fas fa-fw fa-plus"></span> Tambah Potensi</a>
               </div>
               <div class="card-body">
-                <table class="table main-table table-hover">
+                <table class="table main-table table-hover table-responsive">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -114,14 +114,13 @@
                           <td>
                             <img width="100" src="<?= base_url('assets/img/potensi/') . $b['gambar'] ?>">
                           </td>
-                          <td><?= $b['judul'] ?></td>
+                          <td><?= '<a href=' . base_url('potensi/') . $b['slug'] . ' target="_blank">' . $b['judul'] . '</a>' ?></td>
                           <td><?= $b['kategori'] ?></td>
                           <td><?= $b['tanggal_dibuat'] ?></td>
                           <td><?= $b['posted_by'] ?></td>
                           <td>
                             <a href="<?= base_url('admin/potensi/edit/') . $b['slug'] ?>" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="bottom" title="Edit"><span class="fas fa-fw fa-pen"></span></a>
                             <a href="#" data-toggle="modal" data-target="#hapusModal" class="btn btn-sm btn-danger " data-id="<?= $b['id'] ?>" data-judul="<?= $b['judul'] ?>" data-toggle="tooltip" data-placement="bottom" title="Hapus"><span class="fas fa-fw fa-trash"></span></a>
-                            <a target="_blank" href="<?= base_url('potensi/') . $b['slug'] ?>" class="btn btn-sm btn-light" data-toggle="tooltip" data-placement="bottom" title="Preview"><span class="fas fa-fw fa-eye"></span></a>
                           </td>
                         </tr>
                     <?php

@@ -14,13 +14,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
   <!-- Jquery JS -->
-    <script src="<?= base_url('assets/') ?>js/jquery.min.js"></script>
+  <script src="<?= base_url('assets/') ?>js/jquery.min.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" href="<?= base_url('assets/img/') ?>favicon.png">
 
   <!-- DataTables -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('assets/dashboard/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,10 +30,10 @@
   <!-- Custom styles for this template-->
   <link href="<?= base_url('assets/dashboard/') ?>css/sb-admin-2.css" rel="stylesheet">
   <link href="<?= base_url('assets/dashboard/') ?>css/style.css" rel="stylesheet">
-  
+
   <!-- Leaflet -->
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/leaflet/') ?>leaflet.css">
-  <script src="<?= base_url('assets/') ?>vendor/leaflet/leaflet.js"></script> 
+  <script src="<?= base_url('assets/') ?>vendor/leaflet/leaflet.js"></script>
 
 </head>
 

@@ -6,7 +6,7 @@
 
   <div class="row">
     <!-- kolom data -->
-    <div class="overflow-auto col-5" style="max-height: 600px;">
+    <div class="col-sm-12 col-md-6 col-lg-6" style="max-height: 600px;">
       <?= $this->session->flashdata('message'); ?>
       <div class="card mb-2">
         <div class="card-body px-3">
@@ -184,7 +184,7 @@
     <!-- end kolom data -->
 
     <!-- kolom peta -->
-    <div class="col">
+    <div class="col-sm-12 col-md-6 col-lg-6">
       <div id="maps" style="height: 600px"></div>
     </div>
   </div>
