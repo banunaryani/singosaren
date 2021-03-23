@@ -8,7 +8,7 @@
 
   <form method="post" action="<?= base_url() ?>admin/navbar/edit_navbar/<?= $menu['id'] ?>" id="form_tambah_navbar">
 
-    <div class="col-7">
+    <div class="col-lg-7 col-md-8 col-md-12">
       <p class="mb-2"><small>* wajib diisi</small></p>
       <input type="hidden" name="id" id="id" value="<?= $menu['id'] ?>">
 

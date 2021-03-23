@@ -12,7 +12,7 @@
     <div class="card-body">
 
       <div class="row ml-1">
-        <div class="col-6 mx-2">
+        <div class="col-lg-6 col-md-6 col-sm-12 mx-2">
 
           <form method="post" action="<?= base_url('admin/kontak') ?>">
 

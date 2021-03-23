@@ -4,7 +4,7 @@
 	<!-- Page Heading -->
 	<h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
 
-	<div class="card col-7 mb-3">
+	<div class="card col-lg-7 col-md-8 col-md-12 mb-3">
 		<div class="card-body">
 			<p class="mb-2"><small>* wajib diisi</small></p>
 
