@@ -19,6 +19,9 @@
 	<!-- Jquery JS -->
 	<script src="<?= base_url('assets/') ?>js/jquery.min.js"></script>
 
+	<!-- Embed Media -->
+	<script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+
 	<!-- Favicon -->
 	<link rel="icon" href="<?= base_url('assets/img/') . $deskripsi['favicon'] . '?v=1' ?>">
 

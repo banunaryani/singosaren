@@ -6640,7 +6640,7 @@ button.bg-dark:focus {
   display: inline-flex !important;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 360px) {
   .d-sm-none {
     display: none !important;
   }
